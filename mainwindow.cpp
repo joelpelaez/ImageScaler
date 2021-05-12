@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include <QGraphicsItem>
 #include <QMessageBox>
+
 #include <algorithm>
 #include <tuple>
 
@@ -207,3 +208,14 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
 void MainWindow::on_actionExit_triggered() { QApplication::exit(0); }
 
 void MainWindow::on_actionAbout_Qt_triggered() { QApplication::aboutQt(); }
+
+void MainWindow::on_actionAbout_triggered()
+{
+  QMessageBox message(this);
+  message.setWindowTitle(tr("About..."));
+  message.setText(tr("ImageScaler compiled at " __DATE__));
+  message.setStandardButtons(QMessageBox::Ok);
+  message.setIcon(QMessageBox::Information);
+  message.exec();
+}
+
